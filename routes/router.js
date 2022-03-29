@@ -6,21 +6,36 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
 	console.log("page hit");
+
 	try {
-		console.log("Test");
-		res.render('index', { message: "This is Awesome!" });
+		const result = await User.find({}).select('first_name last_name email id').exec();
+		console.log(result);
+		res.render('index', { allUsers: result });
 	}
 	catch (ex) {
-		res.render('error', { message: 'Error' });
+		res.render('error', { message: 'Error' }); 
 		console.log("Error");
 		console.log(ex);
 	}
 });
 
+// router.get('/', async (req, res) => {
+// 	console.log("page hit");
+// 	try {
+// 		console.log("Test");
+// 		res.render('index', { message: "This is Awesome!" });
+// 	}
+// 	catch (ex) {
+// 		res.render('error', { message: 'Error' });
+// 		console.log("Error");
+// 		console.log(ex);
+// 	}
+// });
+
 
 router.get("/populateData", async (req, res) => {
 	console.log("populate Data");
-	
+
 	try {
 		let pet1 = new Pet({
 			name: "Fido"
@@ -52,7 +67,7 @@ router.get("/populateData", async (req, res) => {
 		res.redirect("/");
 
 	} catch (ex) {
-		res.render('error', {message: 'Error'});
+		res.render('error', { message: 'Error' });
 		console.log("Error");
 		console.log(ex);
 	}
