@@ -1,18 +1,30 @@
 {
-	"name": "tutorial",
-	"version": "1.0.0",
-	"scripts": {
-		"start": "nodemon index.js"
-	},
-	"dependencies": {
-		"ejs": "^3.1.5",
-		"express": "^4.17.1",
-		"mongoose": "^5.12.3",
-		"nodemon": "^2.0.7"
-	},
-	"author": "Patrick",
-	"license": "ISC",
-	"devDependencies": {
-		"sequelize-cli": "^6.2.0"
-	}
+  "name": "tutorial",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "joi": "^17.6.0",
+    "mongodb": "^4.4.1",
+    "mongoose": "^5.13.14",
+    "nodemon": "^2.0.7"
+  },
+  "author": "Patrick",
+  "license": "ISC",
+  "devDependencies": {
+    "sequelize-cli": "^6.2.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevincjhung/comp2350-week13-a00893306.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kevincjhung/comp2350-week13-a00893306/issues"
+  },
+  "homepage": "https://github.com/kevincjhung/comp2350-week13-a00893306#readme",
+  "description": ""
 }
