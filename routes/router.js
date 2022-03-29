@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 		res.render('index', { allUsers: result });
 	}
 	catch (ex) {
-		res.render('error', { message: 'Error' }); 
+		res.render('error', { message: 'Error' });
 		console.log("Error");
 		console.log(ex);
 	}
@@ -74,7 +74,26 @@ router.get("/populateData", async (req, res) => {
 });
 
 
+router.get('/showPets', async (req, res) => {
+	console.log("page hit");
+	try {
+		const schema = Joi.string().max(25).required();
+		const validationResult = schema.validate(req.query.id);
 
+		if (validationResult.error != null) {
+			console.log(validationResult.error);
+			throw validationResult.error;
+		}
+
+		const userResult = await User.findOne({ _id: req.query.id }).select('first_name id name ').populate('pets').exec();
+		console.log(userResult);
+		res.render('pet', { userAndPets: userResult });
+
+	} catch (ex) {
+		res.render('error', { message: 'Error' }); console.log("Error");
+		console.log(ex);
+	}
+});
 
 
 
