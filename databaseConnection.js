@@ -5,7 +5,7 @@ const databaseName = "lab_example"
 const herokuURI =
 	"mongodb+srv://theMongoAdmin:accidentalLoginSteps@cluster0.4ulcc.mongodb.net/" + databaseName + "?retryWrites=true&w=majority"
 
-const localURI = "mongodb://localhost/" + databaseName + "?authSource=admin&retryWrites=true"
+const localURI = "mongodb://127.0.0.1/" + databaseName + "?authSource=admin&retryWrites=true"
 // 127.0.0.1
 
 if (is_heroku) {
